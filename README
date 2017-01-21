@@ -1,58 +1,11 @@
-Rails Devise
-========================
+Reproduction of https://github.com/plataformatec/devise/issues/4397#issuecomment-274038522.
 
-This application was generated with the rails_apps_composer gem:
-https://github.com/RailsApps/rails_apps_composer
-provided by the RailsApps Project:
-http://railsapps.github.io/
+The development sqlite DB is in Git, just run Rails in development mode.
 
-________________________
+Here is a reset password url: http://localhost:3000/users/password/edit?reset_password_token=---fq9wEMk3-nHYg9R98
 
-Recipes:
+Try to reset the password for 'foo@example.com', note that the reset-password form has no fields,
+and doesn't submit anything.  Despite this, Devise doesn't complain, though it also doesn't change
+the password—you should still be able to login with 'foo@example.com' with the password 'foobar'.
 
-* apps4
-* controllers
-* core
-* email
-* extras
-* frontend
-* gems
-* git
-* init
-* models
-* prelaunch
-* railsapps
-* readme
-* routes
-* saas
-* setup
-* testing
-* views
-
-Preferences:
-
-* git: true
-* apps4: rails-devise
-* unit_test: false
-* integration: false
-* fixtures: false
-* authentication: devise
-* authorization: false
-* starter_app: false
-* quiet_assets: true
-* local_env_file: false
-* better_errors: true
-* dev_webserver: webrick
-* prod_webserver: same
-* database: sqlite
-* templates: erb
-* continuous_testing: none
-* frontend: simple
-* email: gmail
-* devise_modules: default
-* form_builder: none
-* rvmrc: true
-
-________________________
-
-License
+This repo is based upon from https://github.com/RailsApps/rails-devise
